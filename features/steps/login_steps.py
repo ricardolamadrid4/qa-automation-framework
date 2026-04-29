@@ -4,9 +4,7 @@ from constants.environment_constants import EnvironmentConstants
 
 @when('the user opens the login page')
 def step_open_login_page(context):
-    context.driver.get(
-        EnvironmentConstants.BASE_URL
-    )
+    context.driver.get(EnvironmentConstants.BASE_URL)
 
 
 @when('the user enters valid credentials')
