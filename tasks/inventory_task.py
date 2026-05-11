@@ -11,3 +11,9 @@ class InventoryTask:
         
     def get_cart_badge_value(self):
         return self.interactions.get_text(InventoryPageUI.CART_BADGE, 3)
+    
+    def remove_product_from_cart(self):
+        self.interactions.click(InventoryPageUI.REMOVE_BACKPACK_BUTTON, 3)
+        
+    def is_cart_badge_displayed(self):
+        return self.interactions.verify_element_is_visible(InventoryPageUI.CART_BADGE, 3)

@@ -13,3 +13,13 @@ def step_add_product_to_cart(context):
 def step_verify_cart_badge(context):
     actual_cart_count = context.inventory_task.get_cart_badge_value()
     context.inventory_assertions.verify_cart_badge_value(actual_cart_count)
+    
+@when("the user removes the product from the cart")
+def step_remove_product(context):
+    context.inventory_task.remove_product_from_cart()
+
+
+@then("the user should see the cart badge empty")
+def step_verify_empty_cart(context):
+    is_visible = context.inventory_task.is_cart_badge_displayed()
+    context.inventory_assertions.verify_cart_is_empty(is_visible)

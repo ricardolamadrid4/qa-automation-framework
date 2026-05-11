@@ -36,3 +36,12 @@ class PageInteractions:
         except Exception as e:
             raise Exception(
                 f'Could not get text from element {locator}. Error: {e}')
+            
+    def verify_element_is_visible(self, locator, wait_time=5):
+        try:
+            WebDriverWait(self.driver, wait_time).until(
+                EC.visibility_of_element_located(locator)
+            )
+            return True
+        except:
+            return False
