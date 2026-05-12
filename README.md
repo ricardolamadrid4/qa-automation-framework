@@ -15,13 +15,12 @@ This project is a test automation framework developed using Python, Selenium Web
 ## Project Structure
 
 ```text
-features/
-pages/
-tasks/
-interactions/
-assertions/
-constants/
-```
+features/        -> Gherkin scenarios and test cases
+page_ui/         -> Page locators and UI elements
+tasks/           -> Test flow and business actions
+interactions/    -> Reusable Selenium interactions
+assertions/      -> Test validations and assertions
+constants/       -> Centralized test data and environment variables
 
 ## Tech Stack
 
@@ -36,6 +35,10 @@ constants/
 behave
 ```
 
-## Current Automated Scenario
+## Current Automated Scenarios
 
 - Successful login validation
+- Add product to cart
+- Remove product from cart
+- Sort products by name Z to A
+- Complete checkout process

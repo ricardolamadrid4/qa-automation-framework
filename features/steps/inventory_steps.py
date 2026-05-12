@@ -21,6 +21,20 @@ def step_remove_product(context):
 @when('the user sorts products by name Z to A')
 def step_sort_products(context):
     context.inventory_task.sort_products_by_name_descending()
+    
+@when('the user proceeds to checkout')
+def step_proceed_to_checkout(context):
+    context.inventory_task.proceed_to_checkout()
+
+
+@when('the user enters checkout information')
+def step_enter_checkout_information(context):
+    context.inventory_task.enter_checkout_information()
+
+
+@when('the user completes the purchase')
+def step_complete_purchase(context):
+    context.inventory_task.complete_purchase()
 
 
 @then("the user should see the cart badge empty")
@@ -32,3 +46,9 @@ def step_verify_empty_cart(context):
 def step_verify_sorted_products(context):
     product_names = context.inventory_task.get_product_names()
     context.inventory_assertions.verify_products_sorted_descending(product_names)
+    
+@then('the user should see the checkout complete message')
+def step_verify_checkout_complete_message(context):
+    actual_message = context.inventory_task.get_checkout_complete_message()
+
+    context.inventory_assertions.verify_checkout_complete_message(actual_message)

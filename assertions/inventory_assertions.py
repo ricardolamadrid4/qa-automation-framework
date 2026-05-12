@@ -11,3 +11,7 @@ class InventoryAssertions:
     
     def verify_products_sorted_descending(self, product_names):
         assert product_names == sorted(product_names, reverse=True), f'Products are not sorted descending: {product_names}'
+        
+    def verify_checkout_complete_message(self, actual_message):
+        assert actual_message == InventoryConstants.CHECKOUT_COMPLETE_MESSAGE, \
+            f'Expected checkout complete message was not displayed. Actual message: {actual_message}'
