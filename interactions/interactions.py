@@ -39,9 +39,20 @@ class PageInteractions:
             
     def verify_element_is_visible(self, locator, wait_time=5):
         try:
-            WebDriverWait(self.driver, wait_time).until(
-                EC.visibility_of_element_located(locator)
-            )
+            WebDriverWait(self.driver, wait_time).until(EC.visibility_of_element_located(locator))
             return True
         except:
             return False
+        
+    def find_element(self, locator, wait_time=5):
+        try:
+            return WebDriverWait(self.driver, wait_time).until(EC.visibility_of_element_located(locator))
+        except Exception as e:
+            raise Exception(f'Could not find element {locator}. Error: {e}')
+    
+    def find_elements(self, locator, wait_time=5):
+        try:
+            WebDriverWait(self.driver, wait_time).until(EC.visibility_of_all_elements_located(locator))
+            return self.driver.find_elements(*locator)
+        except Exception as e:
+            raise Exception(f'Could not find elements {locator}. Error: {e}')

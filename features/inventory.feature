@@ -10,3 +10,8 @@ Scenario: Remove product from cart
     And the user adds a product to the cart
     And the user removes the product from the cart
     Then the user should see the cart badge empty
+
+Scenario: Sort products by name Z to A
+    When the user navigates to the inventory page
+    And the user sorts products by name Z to A
+    Then the products should be displayed in descending alphabetical order
